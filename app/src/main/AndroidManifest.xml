@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reto2"></activity>
+        <activity android:name=".Reto3"></activity>
+        <activity android:name=".Reto2" />
         <activity android:name=".Reto1" />
         <activity android:name=".MainActivity">
             <intent-filter>

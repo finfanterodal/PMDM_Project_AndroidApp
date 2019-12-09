@@ -13,6 +13,8 @@
     <string name="textCamara">Saque una imagen del color que aparezca al pulsar.</string>
     <string name="pregunta">¿En qué año se estrenó "la Comunidad del Anillo"?</string>
     <string name="respuesta">Escriba aquí su respuesta.</string>
+    <string name="textCalculo">Calcule la siguiente expresión matemática.</string>
+    <string name="textExpresion">60 – 30 ÷ 3 • 5 + 7</string>
 </resources>
 
 

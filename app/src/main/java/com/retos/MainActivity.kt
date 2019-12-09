@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         /*Lanzamos otra Activity en la que pedimos hacer un cálculo y verifica,mps.*/
         reto3.setOnClickListener {
-
+            val intent3 = Intent(this, Reto3::class.java)
+            startActivityForResult(intent3, RETO3_REQUEST)
         }
 
 
@@ -77,6 +78,18 @@ class MainActivity : AppCompatActivity() {
 
 
         // RESULTADO RETO3
+
+        if (requestCode == RETO3_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                reto3.setBackgroundColor(Color.GREEN)//boton verde= acierto
+                toast("CORRECTO")
+
+            } else {
+                reto3.setBackgroundColor(Color.RED)//boton rojo= error
+                toast("INCORRECTO")
+            }
+            reto3.setEnabled(false)//desactivamos el reto, ya se ha realizado
+        }
 
         // RESULTADO RETO4
 
