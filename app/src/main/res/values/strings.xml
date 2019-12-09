@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">PMDM_Project_AndroidApp</string>
+    <string name="reto1">PREGUNTA</string>
+    <string name="reto2">CÁMARA</string>
+    <string name="reto3">CALCULAR</string>
+    <string name="reto4">SORBRESA</string>
+    <string name="completar">COMPLETAR</string>
+    <string name="titulo">PROYECTO ANDROID RETOS</string>
+    <string name="suma">SUMA</string>
+    <string name="resta">RESTA</string>
+    <string name="producto">PRODUCTO</string>
+    <string name="division">DIVISION</string>
+    <string name="num1">Introduzca el primer número.</string>
+    <string name="num2">Introduzca el segundo número</string>
+    <string name="resultado">Resultado de la operación.</string>
+    <string name="comprobar">Comprobar</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="imageView">ImageView</string>
+    <string name="camera">Capturar</string>
+    <string name="pregunta">¿En qué año se estrenó "la Comunidad del Anillo"?</string>
+    <string name="respuesta">Escriba aquí su respuesta.</string>
+</resources>
