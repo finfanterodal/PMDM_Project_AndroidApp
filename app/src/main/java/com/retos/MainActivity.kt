@@ -1,10 +1,14 @@
 package com.retos
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 const val RETO1_REQUEST = 1
 const val RETO2_REQUEST = 2
@@ -16,28 +20,50 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //Listenners
-        reto1.setOnClickListener { reto1_Pregunta(it) }
-        reto2.setOnClickListener { reto2_Camara(it) }
-        reto3.setOnClickListener { reto3_Calculadora(it) }
-        reto4.setOnClickListener { reto4_Sorpresa(it) }
+
+        /*Lanzamos otra Activity en la que hay una serie de preguntas y tienes opción a buscar en el navegador .*/
+        reto1.setOnClickListener {
+            val intent = Intent(this, Reto1::class.java)//creamos el intent
+            startActivityForResult(intent, RETO1_REQUEST)//iniciamos
+        }
+
+        /*Lanzamos la cámara y sacamos una foto sobre algo y verificamos.*/
+        reto2.setOnClickListener {
+
+        }
+
+        /*Lanzamos otra Activity en la que pedimos hacer un cálculo y verifica,mps.*/
+        reto3.setOnClickListener {
+
+        }
+
+
+        reto4.setOnClickListener {
+
+        }
     }
-    /*Lanzamos otra Activity en la que hay una serie de preguntas y tienes opción a buscar en el navegador (Añadimos un temporizador).*/
-    fun reto1_Pregunta(v: View) {
 
-    }
 
-    /*Lanzamos la cámara y sacamos una foto sobre algo y verificamos.*/
-    fun reto2_Camara(v: View) {
-    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-    /*Lanzamos otra Activity en la que pedimos un par de números y hacemos un cálculo.*/
-    fun reto3_Calculadora(v: View) {
+        // RESULTADO RETO1
+        if (requestCode == RETO1_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                if ((data?.getStringExtra("respuesta").toString()).equals("2001")) {
+                    reto1.setBackgroundColor(Color.GREEN)//boton verde= acierto
 
-    }
+                } else {
+                    reto1.setBackgroundColor(Color.RED)//boton rojo= error
+                }
+            }
+            reto1.setEnabled(false)//desactivamos el reto, ya se ha realizado
+        }
+        // RESULTADO RETO2
 
-    /*Sorpresa*/
-    fun reto4_Sorpresa(v: View) {
+        // RESULTADO RETO3
+
+        // RESULTADO RETO4
 
     }
 }
