@@ -5,8 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
@@ -23,13 +21,14 @@ class MainActivity : AppCompatActivity() {
 
         /*Lanzamos otra Activity en la que hay una serie de preguntas y tienes opción a buscar en el navegador .*/
         reto1.setOnClickListener {
-            val intent = Intent(this, Reto1::class.java)//creamos el intent
+            val intent = Intent(this, Reto1::class.java)
             startActivityForResult(intent, RETO1_REQUEST)//iniciamos
         }
 
         /*Lanzamos la cámara y sacamos una foto sobre algo y verificamos.*/
         reto2.setOnClickListener {
-
+            val intent2 = Intent(this, Reto2::class.java)
+            startActivityForResult(intent2, RETO2_REQUEST)
         }
 
         /*Lanzamos otra Activity en la que pedimos hacer un cálculo y verifica,mps.*/
@@ -60,6 +59,22 @@ class MainActivity : AppCompatActivity() {
             reto1.setEnabled(false)//desactivamos el reto, ya se ha realizado
         }
         // RESULTADO RETO2
+
+        //Reto2
+
+        if (requestCode == RETO2_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data?.getBooleanExtra("resp", false)!!.equals(true)) {
+                    reto2.setBackgroundColor(Color.GREEN)//boton verde= acierto
+                    toast("CORRECTO")
+                } else {
+                    reto2.setBackgroundColor(Color.RED)//boton rojo= error
+                    toast("INCORRECTO")
+                }
+            }
+            reto2.setEnabled(false)//desactivamos el reto, ya se ha realizado
+        }
+
 
         // RESULTADO RETO3
 
