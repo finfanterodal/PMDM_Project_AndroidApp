@@ -3,7 +3,7 @@
     <string name="reto1">PREGUNTA</string>
     <string name="reto2">CÁMARA</string>
     <string name="reto3">CALCULAR</string>
-    <string name="reto4">SORBRESA</string>
+    <string name="reto4">TEMPORIZADOR</string>
     <string name="completar">COMPLETAR</string>
     <string name="titulo">PROYECTO ANDROID RETOS</string>
     <string name="ayuda">Ayuda</string>
@@ -15,6 +15,8 @@
     <string name="respuesta">Escriba aquí su respuesta.</string>
     <string name="textCalculo">Calcule la siguiente expresión matemática.</string>
     <string name="textExpresion">60 – 30 ÷ 3 • 5 + 7</string>
+    <string name="temp">1:00</string>
+    <string name="stop">Stop</string>
 </resources>
 
 

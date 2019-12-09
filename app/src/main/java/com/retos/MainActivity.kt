@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
 
 
         reto4.setOnClickListener {
-
+            val intent4 = Intent(this, Reto4::class.java)
+            startActivityForResult(intent4, RETO4_REQUEST)
         }
     }
 
@@ -92,6 +93,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         // RESULTADO RETO4
-
+        if (requestCode == RETO4_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                reto4.setBackgroundColor(Color.GREEN)//boton verde= acierto
+            } else {
+                reto4.setBackgroundColor(Color.RED)//boton rojo= error
+            }
+            reto3.setEnabled(false)//desactivamos el reto, ya se ha realizado
+        }
     }
 }
