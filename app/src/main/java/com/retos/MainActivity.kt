@@ -53,9 +53,10 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 if ((data?.getStringExtra("respuesta").toString()).equals("2001")) {
                     reto1.setBackgroundColor(Color.GREEN)//boton verde= acierto
-
+                    toast("CORRECTO")
                 } else {
                     reto1.setBackgroundColor(Color.RED)//boton rojo= error
+                    toast("INCORRECTO")
                 }
             }
             reto1.setEnabled(false)//desactivamos el reto, ya se ha realizado
@@ -95,8 +96,10 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == RETO4_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 reto4.setBackgroundColor(Color.GREEN)//boton verde= acierto
+                toast("CORRECTO")
             } else {
                 reto4.setBackgroundColor(Color.RED)//boton rojo= error
+                toast("INCORRECTO")
             }
             reto4.setEnabled(false)//desactivamos el reto, ya se ha realizado
         }

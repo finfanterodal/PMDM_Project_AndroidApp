@@ -98,18 +98,21 @@ class Reto2 : AppCompatActivity() {
                     verde = false
                     azul = false
                     bColor.setBackgroundColor(Color.RED)
+                    toast("ROJO")
                 }
                 2 -> {
                     azul = true
                     rojo = false
                     verde = false
                     bColor.setBackgroundColor(Color.BLUE)
+                    toast("AZUL")
                 }
                 3 -> {
                     verde = true
                     rojo = false
                     azul = false
                     bColor.setBackgroundColor(Color.GREEN)
+                    toast("VERDE")
                 }
                 else -> println("No existe.")
             }
