@@ -50,9 +50,7 @@ class Reto2 : AppCompatActivity() {
                         Manifest.permission.CAMERA
                     )
                 ) {
-                    // Show an explanation to the user *asynchronously* -- don't block
-                    // this thread waiting for the user's response! After the user
-                    // sees the explanation, try again to request the permission.
+
                 } else {
                     // No explanation needed, we can request the permission.
                     ActivityCompat.requestPermissions(
@@ -60,10 +58,6 @@ class Reto2 : AppCompatActivity() {
                         arrayOf(Manifest.permission.CAMERA),
                         REQUEST_IMAGE_CAPTURE
                     )
-
-                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                    // app-defined int constant. The callback method gets the
-                    // result of the request.
                 }
             } else {
                 Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -72,14 +66,12 @@ class Reto2 : AppCompatActivity() {
                     }
                 }
                 toast("Ya tiene este permiso.")
-
-                // Permission has already been granted
             }
 
 
         }
 
-        // Devolvemos al main
+        // Devolvemos al main un true si alguno de los colores coincide
         bComprobar.setOnClickListener {
             val data = Intent()
 
@@ -138,7 +130,7 @@ class Reto2 : AppCompatActivity() {
             val green = colorCentro shr 8 and 0xff
             val blue = colorCentro and 0xff
 
-
+            // Comparamos si el color y la variable color coinciden
             if (red > 100 && green < 60 && blue < 60 && rojo) {
                 resultadoR = true
             } else if (red > 60 && green < 100 && blue < 60 && verde) {

@@ -19,25 +19,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*Lanzamos otra Activity en la que hay una serie de preguntas y tienes opción a buscar en el navegador .*/
+        /*Lanzamos otra Activity en la que hay una pregunta y tienes opción a buscar en el navegador .*/
         reto1.setOnClickListener {
             val intent = Intent(this, Reto1::class.java)
             startActivityForResult(intent, RETO1_REQUEST)//iniciamos
         }
 
-        /*Lanzamos la cámara y sacamos una foto sobre algo y verificamos.*/
+        /*Lanzamos la cámara, pedimos que pulse un botón que selecciona un color al azar, y tendremos que sacar una foto de ese color.*/
         reto2.setOnClickListener {
             val intent2 = Intent(this, Reto2::class.java)
             startActivityForResult(intent2, RETO2_REQUEST)
         }
 
-        /*Lanzamos otra Activity en la que pedimos hacer un cálculo y verifica,mps.*/
+        /*Lanzamos otra Activity en la que pedimos hacer un cálculo y verifica la respuesta.*/
         reto3.setOnClickListener {
             val intent3 = Intent(this, Reto3::class.java)
             startActivityForResult(intent3, RETO3_REQUEST)
         }
 
-
+        /*Lanzamos otra Activity en la que se ejecuta un temporizador, si pulsamos stop, perdemos y devolvemos un false.*/
         reto4.setOnClickListener {
             val intent4 = Intent(this, Reto4::class.java)
             startActivityForResult(intent4, RETO4_REQUEST)
@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         }
         // RESULTADO RETO2
 
-        //Reto2
 
         if (requestCode == RETO2_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 reto4.setBackgroundColor(Color.RED)//boton rojo= error
             }
-            reto3.setEnabled(false)//desactivamos el reto, ya se ha realizado
+            reto4.setEnabled(false)//desactivamos el reto, ya se ha realizado
         }
     }
 }

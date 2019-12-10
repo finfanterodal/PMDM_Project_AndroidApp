@@ -23,7 +23,9 @@ class Reto4 : AppCompatActivity() {
             resp = true
         }
 
+        // Creamos un contador de 10 segundos que descuenta cada segundo.
         object : CountDownTimer(10000, 1000) {
+            // Si el Temporizador termina, devolvemos true y salimos al MainActivity
             override fun onFinish() {
                 resp = true
                 val intent = Intent()
@@ -32,6 +34,7 @@ class Reto4 : AppCompatActivity() {
                 finish()
             }
 
+            // Si pulsamos el botón de stop, el salimos de esta activity y devolvemos un false
             override fun onTick(millisUntilFinished: Long) {
 
                 if (resp) {

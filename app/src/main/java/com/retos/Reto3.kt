@@ -12,6 +12,7 @@ class Reto3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reto3)
 
+        // Comprobamos que el cálculo es correcto y devolvemos true o false
         bComprobar.setOnClickListener {
             var calculo = 17
             var respuesta = Integer.parseInt(textNumber.text.toString())
