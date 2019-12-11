@@ -15,10 +15,12 @@ import kotlinx.android.synthetic.main.activity_reto2.*
 import org.jetbrains.anko.toast
 import kotlin.random.Random
 
+const val REQUEST_IMAGE_CAPTURE = 1
+const val MY_PERMISSIONS_CAMERA = 2
 
 class Reto2 : AppCompatActivity() {
 
-    val REQUEST_IMAGE_CAPTURE = 1
+
     var resultadoR = false
     var resultadoV = false
     var resultadoA = false
@@ -33,7 +35,6 @@ class Reto2 : AppCompatActivity() {
 
         // Pedimos permisos y guardamos la captura
         bCamara.setOnClickListener {
-
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.CAMERA
@@ -43,7 +44,6 @@ class Reto2 : AppCompatActivity() {
 
                 // Permission is not granted
                 toast("No tiene este permiso para acceder a la Camara.")
-
                 // Should we show an explanation?
                 if (ActivityCompat.shouldShowRequestPermissionRationale(
                         this,
@@ -56,20 +56,18 @@ class Reto2 : AppCompatActivity() {
                     ActivityCompat.requestPermissions(
                         this,
                         arrayOf(Manifest.permission.CAMERA),
-                        REQUEST_IMAGE_CAPTURE
+                        MY_PERMISSIONS_CAMERA
                     )
                 }
             } else {
-                Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                    takePictureIntent.resolveActivity(packageManager)?.also {
-                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                    }
-                }
+                dispatchTakePictureIntent()
                 toast("Ya tiene este permiso.")
+                // Permission has already been granted
             }
 
 
         }
+
 
         // Devolvemos al main un true si alguno de los colores coincide
         bComprobar.setOnClickListener {
@@ -140,6 +138,15 @@ class Reto2 : AppCompatActivity() {
                 resultadoV = true
             } else if (red > 60 && green < 60 && blue < 100 && azul) {
                 resultadoA = true
+            }
+        }
+    }
+
+    //Lanzamos la Aplicacióin de la cámara
+    private fun dispatchTakePictureIntent() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+            takePictureIntent.resolveActivity(packageManager)?.also {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
     }
